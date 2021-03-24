@@ -6,7 +6,7 @@ set -e
 GSLB_INGRESS_HOSTNAME=""
 while true
 do
-   GSLB_INGRESS_HOSTNAME="$(kubectl get svc -n ingress-bundle -o jsonpath='{.items[0].status.loadBalancer.ingress[0].hostname}')"
+   GSLB_INGRESS_HOSTNAME="$(kubectl get svc -n ingress-bundle -o jsonpath='{.items[2].status.loadBalancer.ingress[0].hostname}')"
    if [ "$GSLB_INGRESS_HOSTNAME" != "" ]; then
      echo "Found ingress hostname $GSLB_INGRESS_HOSTNAME"
      break;
